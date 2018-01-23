@@ -1,0 +1,256 @@
+import os
+import json
+
+#Holiday House
+
+options = ('1) View All Items', '2) View Items by Room', '3) View total cost', '4) Add Items to Rooms')
+
+room_names = (' 1) Master Bedroom', ' 2) Guest Bedroom', ' 3) Kids Bedroom', ' 4) Ensuite', ' 5) Bathroom', ' 6) Toilet', ' 7) Kitchen', ' 8) Family', ' 9) Dining', '10) Lounge', '11) Garage', 
+	          '12) Backyard', '13) Frontyard', '14) Laundry', '15) Office')
+
+master ={'Bed':0, 'Mattress' : 0, 'Mattress Protector': 0, 'Duvet Covers' :0, 'Fitted Sheet' : 0,
+		'Flat Sheet':0, 'Pillows': 0, 'Extra Blanket': 0, 'Night table': 0, 'Table Lamp' : 0, 'Art Work': 0,
+		'Clock radio' :1, 'Hangers': 1, 'TV' : 1}
+bed1 ={'Bed':0, 'Mattress' : 0, 'Mattress Protector': 0, 'Duvet Covers' :0, 'Fitted Sheet' : 0,
+		'Flat Sheet':0, 'Pillows': 0, 'Extra Blanket': 0, 'Lamp' : 0, 'Art Work': 0,
+		'Hangers': 0}
+bed2 ={'Bunk Beds':0, 'Mattress' : 0, 'Mattress Protector': 0, 'Duvet Covers' :0, 'Fitted Sheet' : 0,
+		'Flat Sheet':0, 'Pillows': 0, 'Extra Blanket': 0, 'Lamp' : 0, 'Art Work': 0,
+		'Hangers': 0}
+ensuite ={'soaps' : 0, 'toilet brush': 0}
+bathroom ={'Bath Hand & Face Towels': 0, 'Bathmat':0, 'Hair Dryer': 0, 'Hand Soap & Lotion' : 0, 'Bin': 0}
+toilet = {'toilet brush': 0}
+kitchen ={'Toaster' : 0,'Microwave' : 0,'Coffee Maker' : 0,'Kettle' : 0,'Garbage Can' : 0, 'Recycling Bin' : 0, 'Oven Mitts' : 0, 'Metal Roaster with Lid' : 0, 'Pots' : 0
+         ,'Pans' : 0, 'Mixing Bowls' : 0, 'Measuring Cup' : 0, 'Measuring Spoons' : 0, 'Cutting Board' : 0, 'Strainer' : 0, 'Blender' : 0, 'Corkscrew' : 0
+         , 'Veggie Peeler' : 0, 'Can Opener' : 0 , 'Whisk' : 0 , 'Mixing Spoon' : 0 , 'Grater' : 0 , 'Knife Block Set' : 0, 'Scissors' : 0, 'Utensil Set/Holder' : 0
+         , 'Glassware' : 0, 'Wine Glasses' : 0, 'Dinnerware' : 0, 'Mugs' : 0, 'Coasters' : 0, 'Napkin Holders' : 0, 'Dishwasher Detergent': 0, 'Tin Foil':0, 'Glad Wrap': 0}
+family ={'Sofa Bed' : 0, 'Chair' : 0, 'Coffee Table' : 0, 'Table Lamp' : 0, 'Floor Lamps' : 0, 'Plasma TV' : 0, 'Blueray' : 0, 'DVDs' : 0}
+dinner ={'Dining Table' : 0, 'Chairs' : 0, 'Table Mats' : 0, 'Artwork' : 0,}
+lounge ={'Sofa Bed' : 0, 'Chair' : 0, 'Coffee Table' : 0, 'Table Lamp' : 0, 'Floor Lamps' : 0, 'Plasma TV' : 0, 'Blueray' : 0, 'DVDs' : 0}
+garage ={'Table Tennis' : 0, 'Beach gear': 0}
+backyard ={'Outdoor Chairs' : 0, 'Outdoor Table': 0, 'BBQ with cover' :0, 'BBQ Utensils' : 0,'Gas Bottle': 0, 'kids swings': 0}
+frontyard ={'Key Security Box': 0, 'Alarm': 0}
+laundry = {'Cleaning Products':0, 'Toilet Plunger': 0, 'Ironing Board': 0, 'Iron': 0, 'Toilet Paper': 0, 'Tissues': 0, 'Laundry Detergent':0, 
+          'Laundry Basket': 0, 'Light Bulbs' : 0, 'Garbage Bags' : 0, 'Vacuum': 0, 'Broom/Dustpan': 0, 'Mop': 0, 'Cleaning Spray & Supplies': 0}
+office = {'Desk' :0, 'Chair' :0, 'Desk Lamp' :0, 'Pen/Pencil Holder' :0, 'Waste Basket' :0, 'Floor Protector':0}
+cost=[]
+rooms = (master, bed1, bed2, ensuite, bathroom, toilet, kitchen, family, dinner, lounge, garage, backyard, frontyard, laundry, office)
+
+print ('Holiday House Item Planning')
+
+def __main__():
+	
+	print ('')
+	print ('******************')
+	print ('* Top Level Menu *')
+	print ('******************')
+	# Print list of options
+	print (*options, sep='\n')
+	print ('Select an option from the list')
+	user1 = input('>> ')
+
+	if user1 == '1':
+		print (json.dumps(rooms, indent=4, sort_keys=True))
+		__main__()
+	elif user1 == '2':
+		print (*room_names, sep='\n')
+		print ('Select a room from the list')
+		user2 = input('>> ')
+		if user2 == '1':
+			print (json.dumps(master, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '2':
+			print (json.dumps(bed1, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '3':
+			print (json.dumps(bed2, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '4':
+			print (json.dumps(ensuite, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '5':
+			print (json.dumps(bathroom, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '6':
+			print (json.dumps(toilet, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '7':
+			print (json.dumps(kitchen, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '8':
+			print (json.dumps(family, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '9':
+			print (json.dumps(dinner, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '10':
+			print (json.dumps(lounge, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '11':
+			print (json.dumps(garage, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '12':
+			print (json.dumps(backyard, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '13':
+			print (json.dumps(frontyard, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '14':
+			print (json.dumps(laundry, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '15':
+			print (json.dumps(office, indent=4, sort_keys=True))
+			__main__()
+		else:
+			print ('Not a valid selection')
+	elif user1 == '3':
+		print ('Current cost per room')
+		master_cost = sum(master.values())
+		bed1_cost = sum(bed1.values())
+		bed2_cost = sum(bed2.values())
+		ensuite_cost = sum(ensuite.values())
+		bathroom_cost = sum(bathroom.values())
+		toilet_cost = sum(toilet.values())
+		kitchen_cost = sum(kitchen.values())
+		family_cost = sum(family.values())
+		dinner_cost = sum(dinner.values())
+		lounge_cost = sum(lounge.values())
+		garage_cost = sum(garage.values())
+		backyard_cost = sum(backyard.values())
+		frontyard_cost = sum(frontyard.values())
+		laundry_cost = sum(laundry.values())
+		office_cost = sum(office.values())
+		total_rooms = (master_cost + bed1_cost + bed2_cost + ensuite_cost + bathroom_cost + toilet_cost + kitchen_cost + family_cost + dinner_cost + lounge_cost + garage_cost + backyard_cost
+		+ frontyard_cost + laundry_cost + office_cost)
+		print ('Master Bedroom = ', master_cost)		
+		print ('Guest Bedroom = ', bed1_cost)		
+		print ('Kids Bedroom = ', bed2_cost)		
+		print ('Ensuite = ', ensuite_cost)		
+		print ('Bathroom = ', bathroom_cost)		
+		print ('Toilet = ', toilet_cost)		
+		print ('Kitchen = ', kitchen_cost)		
+		print ('Family = ', family_cost)		
+		print ('Dinner = ', dinner_cost)		
+		print ('Lounge = ', lounge_cost)		
+		print ('Garage = ', garage_cost)		
+		print ('Backyard = ', backyard_cost)		
+		print ('Frontyard = ', frontyard_cost)		
+		print ('Laundry = ', laundry_cost)		
+		print ('Office = ', office_cost)		
+		print ('Total for all rooms = ', total_rooms)
+		__main__()
+	elif user1 =='4':
+		print ('Select a room from the list')
+		print (*room_names, sep='\n')
+		user2 = input('>> ')
+		if user2 == '1':
+			item = input('Enter item >> ')
+			price = int(input('Enter price >> '))
+			master[item]=price
+			print (json.dumps(master, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '2':
+			item = input('Enter item >> ')
+			price = int(input('Enter price >> '))
+			bed1[item]=price
+			print (json.dumps(bed1, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '3':
+			item = input('Enter item >> ')
+			price = int(input('Enter price >> '))
+			bed2[item]=price
+			print (json.dumps(bed2, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '4':
+			item = input('Enter item >> ')
+			price = int(input('Enter price >> '))
+			ensuite[item]=price
+			print (json.dumps(ensuite, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '5':
+			item = input('Enter item >> ')
+			price = int(input('Enter price >> '))
+			bathroom[item]=price
+			print (json.dumps(bathroom, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '6':
+			item = input('Enter item >> ')
+			price = int(input('Enter price >> '))
+			toilet[item]=price
+			print (json.dumps(toilet, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '7':
+			item = input('Enter item >> ')
+			price = int(input('Enter price >> '))
+			kitchen[item]=price
+			print (json.dumps(kitchen, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '8':
+			item = input('Enter item >> ')
+			price = int(input('Enter price >> '))
+			family[item]=price
+			print (json.dumps(family, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '9':
+			item = input('Enter item >> ')
+			price = int(input('Enter price >> '))
+			dinner[item]=price
+			print (json.dumps(dinner, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '10':
+			item = input('Enter item >> ')
+			price = int(input('Enter price >> '))
+			lounge[item]=price
+			print (json.dumps(lounge, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '11':
+			item = input('Enter item >> ')
+			price = int(input('Enter price >> '))
+			garage[item]=price
+			print (json.dumps(garage, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '12':
+			item = input('Enter item >> ')
+			price = int(input('Enter price >> '))
+			backyard[item]=price
+			print (json.dumps(backyard, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '13':
+			item = input('Enter item >> ')
+			price = int(input('Enter price >> '))
+			frontyard[item]=price
+			print (json.dumps(frontyard, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '14':
+			item = input('Enter item >> ')
+			price = int(input('Enter price >> '))
+			laundry[item]=price
+			print (json.dumps(laundry, indent=4, sort_keys=True))
+			__main__()
+		elif user2 == '15':
+			item = input('Enter item >> ')
+			price = int(input('Enter price >> '))
+			office[item]=price
+			print (json.dumps(office, indent=4, sort_keys=True))
+			__main__()
+		else:
+			print ('Not a valid selection')
+	else:
+		print ('Not a valid selection')
+
+if __main__ == __main__:
+	__main__()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
